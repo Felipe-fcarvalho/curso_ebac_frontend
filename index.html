@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Requisição de peças</title>
+    <link rel="stylesheet" href="./main.css" /> 
+</head>
+<body>
+    <div class="container">
+        <h1>Requisição de peças</h1>
+        <form id="form-requisicao" >
+            <label for="categoriaA">Categoria A</label>
+            <input type="number" id="categoriaA" required placeholder="Insira a quantidade"/>
+            <label for="categoriaB">Categoria B</label>
+            <input type="number" id="categoriaB" required placeholder="Insira a quantidade" class="error"/>
+            <p class="error-message">OBS: O número de peças da categoria B deve ser maior que o número de peças da categoria A.</p>
+            <button type="submit" id="btn-enviar">Enviar</button>
+            <p class="success-message"></p>
+        </form>
+    </div>
+    <script src="./main.js"></script>
+</body>
+</html>
