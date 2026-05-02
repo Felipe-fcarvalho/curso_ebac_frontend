@@ -1,4 +1,4 @@
-A entrega desse exercício consistia em:
+# A entrega desse exercício consistia em:
 
 
 Criar um repositório no Github, por exemplo: curso_ebac_frontend;
