@@ -1,51 +1,67 @@
 const form = document.getElementById('form-requisicao');
-const numeroB = document.getElementById('categoriaB');
-let formEValido = false;
+const categoriaA = document.getElementById('categoriaA');
+const categoriaB = document.getElementById('categoriaB');
+const mensagemErro = document.querySelector('.error-message');
+const mensagemSucesso = document.querySelector('.success-message');
 
-function validaRequisicao(numeroA, numeroB) {
-    return numeroB > numeroA
+function validaRequisicao(valorA, valorB) {
+    return valorB > valorA;
 }
 
-form.addEventListener('submit', function(e) {
+function mostrarErro(texto) {
+    mensagemErro.innerHTML = texto;
+    mensagemErro.style.display = 'block';
+    mensagemSucesso.style.display = 'none';
+    categoriaB.classList.add('error');
+}
+
+function mostrarSucesso(texto) {
+    mensagemSucesso.innerHTML = texto;
+    mensagemSucesso.style.display = 'block';
+    mensagemErro.style.display = 'none';
+    categoriaB.classList.remove('error');
+}
+
+function esconderMensagens() {
+    mensagemErro.style.display = 'none';
+    mensagemSucesso.style.display = 'none';
+    categoriaB.classList.remove('error');
+}
+
+form.addEventListener('submit', function (e) {
     e.preventDefault();
 
-    const numeroA = document.getElementById('categoriaA');
-    const mensagemSucesso = `Sua requisição foi enviada com sucesso, <b>${numeroA.value}</b> de categoria (A) e <b>${numeroB.value}</b> de categoria (B)`;
+    const valorA = categoriaA.valueAsNumber;
+    const valorB = categoriaB.valueAsNumber;
 
-    formEValido = validaRequisicao(Number(numeroA.value), Number(numeroB.value))
-    if (formEValido) {
-        const containerMensagemSucesso = document.querySelector('.success-message');
-        containerMensagemSucesso.innerHTML = mensagemSucesso;
-        containerMensagemSucesso.style.display = 'block';
+    if (validaRequisicao(valorA, valorB)) {
+        mostrarSucesso(
+            `Sua requisição foi enviada com sucesso, <b>${valorA}</b> de categoria A e <b>${valorB}</b> de categoria B.`
+        );
 
-        numeroA.value = '';
-        numeroB.value = '';
-    } else {  
-        numeroB.classList.add('error');
-        document.querySelector('.error-message').style.display = 'block';
-    }
-})
-
-
-
-numeroB.addEventListener('keyup', function(e) {
-    const numeroA = document.getElementById('categoriaA');
-    formEValido = validaRequisicao(Number(numeroA.value), Number(e.target.value));
-
-    if (!formEValido) {
-        numeroB.classList.add('error');
-        document.querySelector('.error-message').style.display = 'block';
+        categoriaA.value = '';
+        categoriaB.value = '';
     } else {
-        numeroB.classList.remove('error');
-        document.querySelector('.error-message').style.display = 'none';
+        mostrarErro('OBS: O número de peças da categoria B deve ser maior que o número de peças da categoria A.');
     }
-})
+});
 
-function escondeMensagemSucesso() {
-    containerMensagemSucesso.style.display = 'none';
-}
+categoriaA.addEventListener('focus', esconderMensagens);
+categoriaB.addEventListener('focus', esconderMensagens);
 
-const containerMensagemSucesso = document.querySelector('.success-message');
+categoriaB.addEventListener('input', function () {
+    const valorA = categoriaA.valueAsNumber;
+    const valorB = categoriaB.valueAsNumber;
 
-document.getElementById('categoriaA').addEventListener('focus', escondeMensagemSucesso);
-document.getElementById('categoriaB').addEventListener('focus', escondeMensagemSucesso);
+    if (categoriaA.value === '' || categoriaB.value === '') {
+        esconderMensagens();
+        return;
+    }
+
+    if (validaRequisicao(valorA, valorB)) {
+        mensagemErro.style.display = 'none';
+        categoriaB.classList.remove('error');
+    } else {
+        mostrarErro('OBS: O número de peças da categoria B deve ser maior que o número de peças da categoria A.');
+    }
+});
