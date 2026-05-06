@@ -18,11 +18,11 @@ form {
 button {
     background-color: #16249b;
     border: none;
-    border-radius: 8%;
+    border-radius: 6px;
     color: #f0f8ff;
     cursor: pointer;
     font-weight: bold;
-    padding: 8px 16px 8px 16px;
+    padding: 8px 16px;
 }
 
 button:hover {
@@ -32,7 +32,7 @@ button:hover {
 input, button {
     display: block;
     font-size: 16px;
-    margin: 8px 0px 8px 0px;
+    margin: 8px 0px;
 }
 
 .success-message {
@@ -53,11 +53,16 @@ input, button {
     padding: 8px;
 }
 
-input[type="number"]::-webkit-inner-spin-button,
+input.error {
+    border: 1px solid red;
+    outline-color: red;
+}
+
+/*input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
     -webkit-appearance: none;
 }
 
 input[type="number"] {
     appearance: textfield;
-}
+}*/
