@@ -1,0 +1,105 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: url('images/BG.jpg') no-repeat center / cover;
+    overflow-y: hidden;
+}
+
+.container {
+    background-color: #17bec4;
+    max-width: 640px;
+    width: 90%;
+    padding: 16px;
+    text-align: center;
+    margin: 80px auto;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: white;
+    margin-bottom: 16px;
+    font-weight: bold;
+    font-size: 40px;
+    text-transform: uppercase;
+}
+
+form input {
+    color: rgba(0, 0, 0, 0.5);
+    background-color: #ffffff;
+    padding: 8px;
+    border: none;
+    border-radius: 4px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+    font-weight: light;
+    font-size: 16px;
+    outline: none;
+}
+
+form button {
+    background-color: #0b69f7;
+    color: aliceblue;
+    margin-left: 8px;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 999px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1em;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+ul {
+    padding: 0;
+    margin-top: 24px;
+    list-style: none;
+}
+
+ul li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px;
+    text-align: left;
+}
+
+.list {
+    color: rgb(12, 1, 1);
+    background-color: #ffffff;
+    box-shadow: inset 0 4px 4px rgba(0, 0, 0, 0.1);
+    border: 1px solid black;
+    border-radius: 4px;
+}
+
+.texto-tarefa {
+    flex-grow: 1;
+    background-color: #fff;
+    color: #000;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.done {
+    text-decoration: line-through;
+    opacity: 0.7;
+}
+
+.excluir {
+    cursor: pointer;
+    color: #fff;
+}
+
+.excluir:hover {
+    opacity: 0.7;
+}
