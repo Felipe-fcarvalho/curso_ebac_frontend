@@ -1,0 +1,98 @@
+@import "variables.less";
+@import "base.less";
+@import "maps.less";
+
+@breakpointMobile: ~"(max-width: 767px)";
+@breakpointTablet: ~"(min-width: 768px) and (max-width: 1023px)";
+
+.container {
+    max-width: 1024px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+header {
+    background-color: #colors[colorPrimary];
+    position: sticky;
+    top: 0;
+    left: 0;
+    
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: @spacing-sm 0;
+    }
+}
+
+.menu {
+    display: flex;
+
+    li {
+        font-weight: bold;
+        margin-left: @spacing-md;
+        
+        a {
+            color: #colors[colorText];
+            text-decoration: none;
+        }
+    }
+}
+
+section {
+    padding: @spacing-xxl 0;
+}
+
+.products {
+    margin-top: @spacing-xl;
+    display: grid;
+    grid-template-columns: repeat(3, 32.66%);
+    column-gap: 1%;
+    row-gap: 4%;
+    width: 100%;
+    
+    .product-item img {
+        width: 100%;
+        border-radius: @radius-md;
+    }
+    
+    .product-button {
+        display: block;
+        background-color: #colors[colorBtn];
+        color: #colors[colorText];
+        text-align: center;
+        padding: @spacing-xs 0;
+        border-radius: @radius-sm;
+        margin-top: @spacing-sm;
+        text-decoration: none;
+        
+        &:hover {
+            background-color: #colors[colorBtnHover];
+        }
+    }
+}
+
+@media @breakpointTablet {
+    .container {
+        max-width: 80%;
+    }
+
+    .products {
+        grid-template-columns: repeat(2, 48.5%);
+        column-gap: 3%;
+    }
+}
+
+@media @breakpointMobile {
+    .container {
+        max-width: 90%;
+    }
+
+    .products {
+        display: block;
+    }
+
+    .product-item  {
+        margin-bottom: 32px;
+    }
+}
