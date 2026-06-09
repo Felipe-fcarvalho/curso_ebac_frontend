@@ -1,0 +1,22 @@
+@use 'variables';
+
+.produto {
+    &__imagem { 
+        width: 100%;
+    }
+    
+    &__nome {
+        font-size: 1.2em;
+        margin: 8px 0;
+    }
+    
+    &__descricao {
+        color: variables.$color-text;
+    }
+    
+    &--em-destaque { 
+        border: 2px solid variables.$color-hg;
+        padding: 8px;
+        background-color: variables.$color-bg-hg;
+    }
+} 
